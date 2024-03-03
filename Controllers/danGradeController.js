@@ -21,8 +21,6 @@ const getAlldanGrades = async (req, res, next) => {
     };
 
     const danGrades = await DanGrade.find(filter)
-      .limit(limit)
-      .skip(skip)
       .sort({ createdAt: -1 });
 
     const count = await DanGrade.countDocuments(filter);
@@ -31,8 +29,6 @@ const getAlldanGrades = async (req, res, next) => {
       message: "Dan Grades retrieved successfully",
       statusCode: 200,
       meta: {
-        totalPages: Math.ceil(count / limit),
-        currentPage: page,
         totalResults: count,
       },
       data: danGrades,
