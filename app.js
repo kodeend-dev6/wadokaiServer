@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const createError = require("http-errors");
 const { errorResponse } = require("./Controllers/responseController");
 const danGradeRouter = require("./Routes/danGradeRouter");
+const countryListRouter = require("./Routes/countryListRouter");
+const memberRouter = require("./Routes/memberRouter");
 
 const app = express();
 
@@ -12,6 +14,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/dan-grades", danGradeRouter);
+app.use("/api/country-list", countryListRouter);
+app.use("/api/members", memberRouter);
+
 
 app.get("/", (req, res) => {
   res.send("Wadokai is running...");

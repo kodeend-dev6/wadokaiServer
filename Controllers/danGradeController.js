@@ -42,6 +42,8 @@ const getAlldanGrades = async (req, res, next) => {
   }
 };
 
+
+// this api is created for inserting the previous data
 const insertDanGrade = async (req, res, next) => {
   try {
     await DanGrade.deleteMany({});
